@@ -1,7 +1,10 @@
-<h1 id="clock"></h1>
+<div class="clock-container">
+  <h1 id="clock"></h1>
+  <span id="day"></span><span id="month"></span>
+</div>
 <div class="weather">
   <p>
-    <i class="wi wi-owm-<%=@icon_id %>"></i>
+    <i class="wi wi-owm-<%=@icon_id %> icon"></i>
     <%= @temp %><sup>0</sup><span class="unit">C</span>
   </p>
 </div>
