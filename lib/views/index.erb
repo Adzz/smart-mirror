@@ -1,4 +1,7 @@
 <h1 id="clock"></h1>
 <div class="weather">
-  <p><%= @temp %><sup>0</sup>C</p>
+  <p>
+    <i class="wi wi-owm-<%=@icon_id %>"></i>
+    <%= @temp %><sup>0</sup><span class="unit">C</span>
+  </p>
 </div>

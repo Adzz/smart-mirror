@@ -13,15 +13,15 @@ class Weather
     current_weather["main"]["temp"]
   end
 
+  def icon_id
+    current_weather["weather"][0]["id"]
+  end
+
  private
 
   def current_weather
     @current_weather ||= HTTParty.get("#{base_path_current}?id=#{city_id}&units=#{units}&appid=#{api_key}")
   end
-
-  # def forecast
-  #   @forecast ||= HTTParty.get("#{base_path_forecast}?id=#{city_id}&units=#{units}&appid=#{api_key}")
-  # end
 
   attr_reader :api_key, :city_id, :base_path_forecast, :units, :base_path_current
 end

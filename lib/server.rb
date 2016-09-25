@@ -7,7 +7,9 @@ class Server < Sinatra::Base
   set :public_folder, 'public'
 
   get '/' do
-    @temp = Weather.new.temp
+    weather = Weather.new
+    @temp = weather.temp
+    @icon_id = weather.icon_id
     erb :index
   end
 
