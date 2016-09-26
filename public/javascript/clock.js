@@ -1,6 +1,7 @@
 window.onload = function (){
   startTime();
   showDayName();
+  showDate();
   showMonthName();
 };
 
@@ -17,7 +18,7 @@ function startTime() {
 }
 
 function checkTime(i) {
-  if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+  if (i < 10) {i = "0" + i};
     return i;
 }
 
@@ -52,5 +53,11 @@ function showMonthName() {
   var month = date.getMonthName();
   document.getElementById('month').innerHTML = month;
   setTimeout(showMonthName, timeToMidnight());
+}
+
+function showDate() {
+  var date = new Date().getDate();
+  document.getElementById('date').innerHTML = date;
+  setTimeout(showDate, timeToMidnight());
 }
 
