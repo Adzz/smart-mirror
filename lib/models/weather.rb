@@ -9,6 +9,11 @@ class Weather
     @units = "metric"
   end
 
+  def self.reload_weather
+    temp
+    icon_id
+  end
+
   def temp
     current_weather["main"]["temp"]
   end
@@ -20,11 +25,11 @@ class Weather
  private
 
   def current_weather
-    @current_weather ||= HTTParty.get("#{base_path_current}?id=#{city_id}&units=#{units}&appid=#{api_key}")
+    HTTParty.get("#{base_path_current}?id=#{city_id}&units=#{units}&appid=#{api_key}")
   end
 
   def forecast
-    @forecast ||= HTTParty.get("#{base_path_forecast}?id=#{city_id}&units=#{units}&appid=#{api_key}")\
+    HTTParty.get("#{base_path_forecast}?id=#{city_id}&units=#{units}&appid=#{api_key}")\
   end
 
   attr_reader :api_key, :city_id, :base_path_forecast, :units, :base_path_current
