@@ -14,7 +14,7 @@ class Server < Sinatra::Base
 
     outlet = ["ars-technica", "bbc-news", "cnbc", "hacker-news"].sample
     news = News.new(outlet)
-    @articles = news.articles
+    @articles = news.articles[0..3]
     erb :index
   end
 
